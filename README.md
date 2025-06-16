@@ -1,27 +1,67 @@
-# Ngrx
+# Angular NgRx & Charts Demo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.0.
+Este proyecto es una demostración práctica de conceptos avanzados de Angular, incluyendo el uso de NgRx para gestión de estado y la visualización de datos con gráficos usando `ngx-charts`.
 
-## Development server
+Todo el proyecto se ha generado desde cero con Angular CLI, utilizando SCSS para estilos y estructurado en componentes independientes y reutilizables.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Desplegado en GitHub Pages: https://danielcaldes.github.io/angular-ngrx/
 
-## Code scaffolding
+## Tecnologías usadas
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular
+- NgRx (Store)
+- SCSS
+- TypeScript
+- ngx-charts
+- GitHub Pages para despliegue
 
-## Build
+## Cómo ejecutar localmente
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. `git clone https://github.com/DanielCaldes/angular-ngrx.git`
+2. `cd angular-ngrx`
+3. `npm install`
+4. `ng serve`
+5. Abre `http://localhost:4200` en tu navegador
 
-## Running unit tests
+## Descripción del proyecto
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. **Componente de gráficos (`ChartDashboardComponent`)**
+   - Contiene dos gráficos (cada uno en un componente independiente): uno de líneas y otro de barras verticales.
+   - Se ajustan al tamaño del contenedor y son responsivos.
+   - Utiliza `ngx-charts` y admite personalización de colores.
 
-## Running end-to-end tests
+2. **Componente de visualización del contador (`CounterDisplayComponent`)**
+   - Muestra el valor actual del contador, obtenido desde el estado global usando NgRx.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+3. **Componentes de acciones sobre el contador**
+   - `CounterIncrementFiveComponent`: Suma 5 al contador.
+   - `CounterDecrementFiveComponent`: Resta 5 al contador.
+   - `CounterResetComponent`: Reinicia el valor del contador a 0.
 
-## Further help
+4. **Componente raíz (`AppComponent`)**
+   - Integra todos los componentes anteriores.
+   - Demuestra cómo múltiples componentes pueden leer y modificar el estado global de forma desacoplada usando NgRx.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Estructura del proyecto
+
+```
+📁 src/
+├── 📁 app/
+│   ├── 📁 components/
+│   │   ├── 📁 chart-dashboard/
+│   │   ├── 📁 bar-chart/
+│   │   ├── 📁 line-chart/
+│   │   ├── 📁 counter-display/
+│   │   ├── 📁 counter-increment-five/
+│   │   ├── 📁 counter-decrement-five/
+│   │   ├── 📁 counter-reset/
+│   ├── 📁 store/
+│   │   ├── 📄 counter.actions.ts
+│   │   ├── 📄 counter.reducer.ts
+│   │   └── 📄 counter.selectors.ts
+│   ├── 📄 app.component.ts
+│   ├── 📄 app.component.html
+│   └── 📄 app.component.scss
+├── 📁 assets/
+└── 📄 styles.scss
+```
